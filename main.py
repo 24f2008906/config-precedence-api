@@ -149,8 +149,8 @@ def to_bool(value):
 
 
 @app.get("/effective-config")
-async def effective_config(set: List[str] = Query(default=[])):
-
+async def effective_config(set: List[str] = Query(default_factory=list)):
+    
     config = DEFAULTS.copy()
 
     # YAML layer
